@@ -1,3 +1,6 @@
+loguru
+python-dotenv
 pytest
 requests
 selenium
+webdriver-manager

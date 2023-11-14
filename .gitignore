@@ -2,3 +2,5 @@ venv/
 chromedriver
 chromedriver.exe
 .idea/
+__pycache__
+"C:\Project\pysel\src\main\base\__pycache__"
