@@ -9,6 +9,9 @@ services:
     volumes:
       - "./browsers.json:/etc/selenoid/browsers.json" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - "OVERRIDE_VIDEO_OUTPUT_DIR=/opt/selenoid/video"
+    command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video" ]
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge

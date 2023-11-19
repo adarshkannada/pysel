@@ -1,26 +1,32 @@
+import os
+import time
+
 from selenium import webdriver
+from loguru import logger
+from dotenv import load_dotenv
 
 
 class Base:
-    HOST = "localhost"
-    driver = webdriver.Chrome()
 
-    def open_url(self, url: str):
-        self.driver.get(url)
-        self.driver.quit()
+    def __init__(self):
+        # HOST = "localhost"
+        load_dotenv()
+        self.driver = None
 
-    def test_chrome(self):
-        capabilities = {
-            "browserName": "chrome",
-            "version": "119_VNC",
-            "enableVNC": True,
-            "enableVideo": False
-        }
-        chrome = webdriver.Remote(command_executor='http://{}:4444/wd/hub'.format(HOST))
-        chrome.get('https://www.google.com')
-        print('chrome', chrome.title)
-        chrome.quit()
+    def initialise_driver(self):
+        # global driver
+        if os.environ.get("BROWSER") == 'chrome':
+            logger.info(os.environ.get("BROWSER"))
+            self.driver = webdriver.Chrome()
+        elif os.environ.get("BROWSER") == 'firefox':
+            os.environ.get("BROWSER")
+            self.driver = webdriver.Firefox()
+        return self.driver
+
+    def quit_driver(self):
+        if self.driver:
+            self.driver.quit()
 
 
-if __name__ == "__main__":
-    Base().test_chrome()
+# if __name__ == "__main__":
+#     Base().initialise_driver()
