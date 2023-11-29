@@ -13,13 +13,12 @@ class HomePage(Base):
         reject_cooke = self.driver.find_element(By.ID, "didomi-notice-disagree-button")
         return reject_cooke
 
-    SIGN_IN_LINK = "nav-header-login-button"
+    sign_in_link = "nav-header-login-button"
+    create_new_account_new = "prOu_88"
 
     def get_home_page_title(self, title):
         return self.get_title(title=title)
 
-    def is_sign_in_link_exists(self):
-        return self.is_element_visible(self.SIGN_IN_LINK)
-
     def click_sign_in(self):
-        self.click_element(locator=self.SIGN_IN_LINK)
+        self.click_element(locator=self.sign_in_link)
+
