@@ -17,4 +17,3 @@ class TestSignUpPage:
         SignUpPage(driver).create_new_account(driver)
         time.sleep(4)
         logger.info("test passed")
-        
