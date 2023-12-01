@@ -22,7 +22,7 @@ class TestHomepage:
 
     def test_sign_up(self, driver):
         driver.get(os.environ.get("URL"))
-        HomePage(driver).get_reject_cookie_button().click()
+        # HomePage(driver).get_reject_cookie_button().click()
         time.sleep(1)
 
         Base(driver).click_element(locator=(By.ID, HomePage(driver).sign_in_link))

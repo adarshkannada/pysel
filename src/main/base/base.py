@@ -10,7 +10,7 @@ from loguru import logger
 from dotenv import load_dotenv
 
 
-@pytest.mark.usefixture("driver")
+# @pytest.mark.usefixture("driver")
 class Base:
     """ the parent class contains common methods """
 

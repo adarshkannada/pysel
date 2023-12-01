@@ -9,12 +9,12 @@ class HomePage(Base):
     def __init__(self, driver):
         super().__init__(driver)
 
+    sign_in_link = "nav-header-login-button"
+    create_new_account_new = "prOu_88"
+
     def get_reject_cookie_button(self):
         reject_cooke = self.driver.find_element(By.ID, "didomi-notice-disagree-button")
         return reject_cooke
-
-    sign_in_link = "nav-header-login-button"
-    create_new_account_new = "prOu_88"
 
     def get_home_page_title(self, title):
         return self.get_title(title=title)

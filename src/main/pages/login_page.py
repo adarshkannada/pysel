@@ -1,19 +1,18 @@
+import time
+
+import pytest
 from selenium.webdriver.common.by import By
-
+from selenium import webdriver
+from loguru import logger
+import os
 from src.main.base.base import Base
-from src.main.locators.login_page_elements import LoginPageLocators
+from dotenv import load_dotenv
 
 
+@pytest.mark.usefixture("driver")
 class LoginPage(Base):
+    def __init__(self, driver):
+        super().__init__(driver)
+        load_dotenv()
 
-    def reject_cookie(self):
-        self.driver.find_element(By.XPATH, LoginPageLocators.REJECT_COOKIE)
-
-    def enter_username(self, username):
-        self.driver.find_element(*LoginPageLocators.USERNAME).send_keys(username)
-
-    def enter_password(self, password):
-        self.driver.find_element(*LoginPageLocators.PASSWORD).send_keys(password)
-
-    def click_login_button(self):
-        self.driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
+    create_new_account = "//a[@id='prOu_88']//div[contains(text(),'Create a new Rakuten account (free)')]"
