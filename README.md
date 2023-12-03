@@ -13,11 +13,18 @@ Run next in the current directory where `docker-compose.yml` file is present.
 docker-compose up -d
 ```
 
-Install dependencies and run a simple example to tests them - [main.py](./main.py)
+Install dependencies
 ```
 pip install -r requirements.txt
-python main.py
 ```
+SET the environment variables 
+
+|         |                        |
+|---------|------------------------|
+| URL     | https://rakuten.co.uk/ |
+| BROWSER | chrome                 |
+| HOST    | localhost              |
+
 
 To view runned session open browser and follow to the link [http://localhost:8080](http://localhost:8080)
 

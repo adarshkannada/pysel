@@ -19,7 +19,10 @@ class SignUpPage(Base):
         # load_dotenv()
 
     def create_new_account(self, driver):
+        logger.info("rejecting cookies")
         HomePage(driver).get_reject_cookie_button().click()
+        logger.info("click signin link")
         Base(driver).click_element(locator=(By.ID, HomePage(driver).sign_in_link))
+        logger.info("click on create new account button")
         LoginPage(driver).click_element(locator=(By.XPATH, LoginPage(driver).create_new_account))
 
